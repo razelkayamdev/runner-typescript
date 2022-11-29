@@ -2,6 +2,7 @@ import express from 'express';
 import { Application, Response, Request } from 'express';
 import { Server } from 'http';
 import { isAliveRoute } from '../Routes/is_alive.route';
+import { tester } from '../Routes/tester.route';
 
 type Configuration = {
     port: number;
@@ -32,6 +33,7 @@ export class ExpressServer {
 
     private loadRouters() {
         this.app.use(isAliveRoute);
+        this.app.use(tester);
     }
 
     private setupLogs() {
